@@ -1,0 +1,148 @@
+.NotoSans {
+  font-family: "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-no-decoration a {
+  text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.layout-banner-txt-Hover {
+  color: white;
+}
+
+.layout-banner-txt-Hover:hover {
+  color: #CA0808;
+}
+
+.custom-btn-primary a {
+  background: #CA0808;
+  color: white;
+}
+
+.custom-btn-primary a {
+  &:hover {
+    background: white;
+    color: #CA0808;
+    border: 1px solid #ca0808
+  }
+}
+
+.custom-btn-primary button {
+  background: #CA0808;
+  color: white;
+}
+
+.custom-btn-primary button {
+  &:hover {
+    background: white;
+    color: #CA0808;
+    border: 1px solid #ca0808
+  }
+}
+
+.custom-btn-dark button {
+  background: black;
+  color: white
+}
+
+.custom-btn-dark button {
+  &:hover {
+    background: white;
+    color: black;
+    border: 1px solid black
+  }
+}
+
+.custom-btn-dark a {
+  &:hover {
+    background: white;
+    color: black;
+    border: 1px solid black
+  }
+}
+
+.cardHover {
+  transition: transform 0.3s ease;
+}
+
+.cardHover:hover {
+  transform: scale(1.1);
+}
+
+.scrollTop {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.navBarHover:hover {
+  color: #ca0808;
+}
+
+.icon-Hover span {
+  background-color: #ca0808;
+}
+
+.icon-Hover a {
+  color: white
+}
+
+.custom-nav-link {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+.icon-Hover a {
+  &:hover {
+    color: #ca0808;
+  }
+}
+
+
+.scrollTop:hover {
+  transform: scale(1.5);
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    transform: scale(1.2);
+  }
+}
+
+.layout-Banner-Text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1rem;
+}
+
+.bookmark-icon {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  font-size: 1.2rem;
+}
