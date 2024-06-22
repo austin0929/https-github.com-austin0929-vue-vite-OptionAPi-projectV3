@@ -23,15 +23,13 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div
-            class="border text-center py-3 rounded"
+            class="border text-center py-3 rounded custom-btn-primary"
             style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)"
           >
             <h3 class="mb-3">購物車清單</h3>
             <i class="bi bi-box-seam h1 mb-3 d-block"></i>
             <p class="mb-3">目前購物車內無產品，請先選購!</p>
-            <router-link to="/products" class="custom-btn-primary">
-              <button type="button" class="btn">開始購物</button>
-            </router-link>
+              <button type="button" class="btn" @click.prevent="this.$router.push('/products')">開始購物</button>
           </div>
         </div>
       </div>

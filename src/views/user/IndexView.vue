@@ -1,21 +1,19 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading" />
   <div class="mb-md-5 mb-3">
     <div class="indexBanner">
       <div class="container">
         <div>
-          <div>
+          <div class="custom-btn-primary">
             <h2 class="fw-bold mb-3 text-light h1 mb-5">
               堅持品質的美味用心
               <p>烹飪給每一位顧客</p>
             </h2>
             <p class="mb-0 text-light">特級初榨橄欖油、大蒜、洋蔥、蘑菇、</p>
             <p class="text-light">綠橄欖、黑橄欖、新鮮番茄。</p>
-            <router-link to="/products" class="custom-btn-primary"
-              ><button type="button" class="btn rounded mt-3 btn-lg">
-                立刻選購
-              </button></router-link
-            >
+            <button type="button" class="btn rounded mt-3 btn-lg" @click.prevent="this.$router.push('/products')">
+              立刻選購
+            </button>
           </div>
         </div>
       </div>
@@ -137,7 +135,7 @@
             <div class="row justify-content-center my-auto">
               <div class="col-md-4 text-center">
                 <img
-                 src="/src/assets/img/indexPage/customer2.jpg"
+                  src="/src/assets/img/indexPage/customer2.jpg"
                   alt="顧客評價圖"
                   class="mb-3 object-fit-cover swiper-customer-img-size"
                 />
@@ -187,7 +185,10 @@
         :key="product.id"
       >
         <div class="card border p-2 mb-4 position-relative">
-          <a href="#" @click.prevent="this.$router.push(`/product/${product.id}`)">
+          <a
+            href="#"
+            @click.prevent="this.$router.push(`/product/${product.id}`)"
+          >
             <img
               height="200"
               :src="product.imageUrl"
@@ -209,7 +210,11 @@
                   </p>
                 </div>
                 <div class="custom-btn-primary">
-                  <a href="#" class="btn" @click.prevent.stop="addToCart(product)">
+                  <a
+                    href="#"
+                    class="btn"
+                    @click.prevent.stop="addToCart(product)"
+                  >
                     <i class="bi bi-handbag"></i>
                   </a>
                 </div>
@@ -307,8 +312,8 @@ export default {
 </script>
 
 <style lang="scss" scope>
-  .indexBanner {
-  background-image: url('/src/assets/img/indexPage/indexBanner.jpg');
+.indexBanner {
+  background-image: url("/src/assets/img/indexPage/indexBanner.jpg");
   background-position: center center;
   height: 70vh;
   display: flex;
@@ -319,7 +324,7 @@ export default {
 
   @media (max-width: 768px) {
     text-align: center;
-    height: 65vh
+    height: 65vh;
   }
 }
 
