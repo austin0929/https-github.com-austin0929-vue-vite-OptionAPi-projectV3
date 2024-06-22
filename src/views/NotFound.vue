@@ -7,7 +7,7 @@
         <span class="h3 d-block fw-normal text-secondary mb-3"
           >Page not found</span
         >
-        <p>Sorry, the page you are looking for does not exist.</p>
+        <p>Sorry, the page you are looking for does not exist</p>
       </div>
     </div>
   </div>
