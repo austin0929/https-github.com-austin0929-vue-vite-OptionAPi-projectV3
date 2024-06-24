@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"></VueLoading>
+  <VueLoading :active="isLoading"/>
   <table class="table table-striped my-md-5 my-3">
     <thead>
       <tr>
@@ -45,7 +45,7 @@
       </template>
     </tbody>
   </table>
-  <OrderModal ref="modal" :order="tempOrder"></OrderModal>
+  <OrderModal ref="modal" :order="tempOrder"/>
 </template>
 
 <script>

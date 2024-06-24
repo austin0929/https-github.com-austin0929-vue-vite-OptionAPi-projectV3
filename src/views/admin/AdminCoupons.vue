@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"></VueLoading>
+  <VueLoading :active="isLoading"/>
   <div class="text-end my-md-5 my-3 custom-btn-primary">
     <button type="button" class="btn btn-lg" @click="openCouponModal(true)">新增優惠券</button>
   </div>
@@ -43,7 +43,7 @@
       </tr>
     </tbody>
   </table>
-  <CouponModal ref="couponModal" :coupon="tempCoupon" @update-coupon="updateCoupon"></CouponModal>
+  <CouponModal ref="couponModal" :coupon="tempCoupon" @update-coupon="updateCoupon"/>
 </template>
 
 <script>

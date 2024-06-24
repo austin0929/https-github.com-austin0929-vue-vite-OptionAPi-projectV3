@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"></VueLoading>
+  <VueLoading :active="isLoading"/>
   <div class="container">
     <div class="text-end my-md-5 my-3 custom-btn-primary">
       <button class="btn btn-lg" @click="openModal(true)">新增產品</button>
@@ -57,12 +57,12 @@
       </tbody>
     </table>
   </div>
-  <Pagination :pages="pagination" @update-page="getProducts"></Pagination>
+  <Pagination :pages="pagination" @update-page="getProducts"/>
   <ProductModal
     ref="modalComponent"
     :product="tempProduct"
     @update-product="updateProduct"
-  ></ProductModal>
+  />
 </template>
 
 <script>

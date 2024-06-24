@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"></VueLoading>
+  <VueLoading :active="isLoading"/>
   <div class="container">
     <div class="text-end my-md-5 my-3 custom-btn-primary">
       <button class="btn btn-lg" type="button" @click="openArticleModal">新增文章</button>
