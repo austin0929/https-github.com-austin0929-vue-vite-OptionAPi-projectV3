@@ -65,7 +65,7 @@
                       <button
                         class="btn me-2"
                         type="button"
-                        @click.prevent="addTag(item)"
+                        @click="addTag(item)"
                       >
                         {{ item }}
                       </button>
@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import modalMixins from '@/mixins/modalMixins'
+import ModalMixins from '@/mixins/modalMixins'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -183,6 +183,6 @@ export default {
       }
     }
   },
-  mixins: [modalMixins]
+  mixins: [ModalMixins]
 }
 </script>

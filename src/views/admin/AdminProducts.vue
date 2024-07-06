@@ -2,7 +2,7 @@
   <VueLoading :active="isLoading"/>
   <div class="container">
     <div class="text-end my-md-5 my-3 custom-btn-primary">
-      <button class="btn btn-lg" @click="openModal(true)">新增產品</button>
+      <button class="btn btn-lg" type="button" @click="openModal(true)">新增產品</button>
     </div>
     <table class="table table-striped productTable">
       <thead>
@@ -48,7 +48,7 @@
             <button
               type="button"
               class="btn btn-outline-dark"
-              @click.prevent="openModal(false, product)"
+              @click="openModal(false, product)"
             >
               編輯
             </button>

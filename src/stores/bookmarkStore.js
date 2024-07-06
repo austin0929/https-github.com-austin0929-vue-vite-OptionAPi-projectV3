@@ -9,17 +9,31 @@ export default defineStore('bookmarkStore', {
   }),
   actions: {
     addBookmark (product) {
-      const bookMarks = JSON.parse(localStorage.getItem('bookMarks')) || []
-      bookMarks.push(product)
-      localStorage.setItem('bookMarks', JSON.stringify(bookMarks))
-      toast('已加入收藏清單', {
-        theme: 'auto',
-        type: 'success',
-        autoClose: 1000,
-        hideProgressBar: true,
-        dangerouslyHTMLString: true
-      })
-      this.bookmark = bookMarks
+      const index = this.bookmark.findIndex(item => item.id === product.id)
+      if (index === -1) {
+        this.bookmark.push(product)
+        toast('已加入收藏清單', {
+          theme: 'auto',
+          type: 'success',
+          autoClose: 1000,
+          hideProgressBar: true,
+          dangerouslyHTMLString: true
+        })
+      } else {
+        this.bookmark.splice(index, 1)
+        toast('已移除收藏清單', {
+          theme: 'auto',
+          type: 'success',
+          autoClose: 1000,
+          hideProgressBar: true,
+          dangerouslyHTMLString: true
+        })
+      }
+      localStorage.setItem('bookMarks', JSON.stringify(this.bookmark))
+    },
+    isSelected (productId) {
+      const result = this.bookmark.some(item => item.id === productId)
+      return result
     },
     getBookmark () {
       this.bookmark = JSON.parse(localStorage.getItem('bookMarks')) || []
@@ -34,9 +48,15 @@ export default defineStore('bookmarkStore', {
       this.bookmark.findIndex((item) => item.id === mark.id)
       if (index !== -1) {
         this.bookmark.splice(index, 1)
-
         localStorage.setItem('bookMarks', JSON.stringify(this.bookmark))
         this.getBookmark()
+        toast('已移除收藏清單', {
+          theme: 'auto',
+          type: 'success',
+          autoClose: 1000,
+          hideProgressBar: true,
+          dangerouslyHTMLString: true
+        })
       }
     }
   }

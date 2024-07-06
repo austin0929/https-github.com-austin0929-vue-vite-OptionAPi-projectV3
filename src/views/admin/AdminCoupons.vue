@@ -34,7 +34,7 @@
           <div class="btn-group">
             <button
               class="btn btn-outline-dark btn-sm"
-              @click.prevent="openCouponModal(false, coupon)"
+              @click="openCouponModal(false, coupon)"
             >
               編輯
             </button>

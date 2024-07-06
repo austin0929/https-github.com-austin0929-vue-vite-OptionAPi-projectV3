@@ -7,7 +7,6 @@
             src="/src/assets/img/logo/logo.jpg"
             width="30"
             alt="logo圖"
-            @click.stop
           />
           FishDaddy</router-link
         >
@@ -39,7 +38,7 @@
               ><span class="navBarHover">部落格</span></router-link
             >
             <div class="icon-Hover">
-              <a href="#" class="nav-item custom-nav-link me-5" @click.prevent="this.$router.push('/bookmark')"
+              <a href="#" class="nav-item custom-nav-link me-5" @click.prevent="$router.push('/bookmark')"
                 ><i class="bi bi-heart position-relative">
                   <span
                     style="padding-left: 6px"
@@ -52,7 +51,7 @@
               >
             </div>
               <div class="icon-Hover">
-                <a href="#" class="nav-item custom-nav-link" @click.prevent="this.$router.push('/cart')"
+                <a href="#" class="nav-item custom-nav-link" @click.prevent="$router.push('/cart')"
                   ><i class="bi bi-cart3 position-relative">
                     <span
                       style="padding-left: 6px"
@@ -73,18 +72,18 @@
 </template>
 
 <script>
-import cartStore from '@/stores/cartStore.js'
+import CartStore from '@/stores/cartStore.js'
 import { mapState, mapActions } from 'pinia'
-import bookmarkStore from '@/stores/bookmarkStore'
+import BookmarkStore from '@/stores/bookmarkStore'
 
 export default {
   computed: {
-    ...mapState(cartStore, ['carts']),
-    ...mapState(bookmarkStore, ['bookmark'])
+    ...mapState(CartStore, ['carts']),
+    ...mapState(BookmarkStore, ['bookmark'])
   },
   methods: {
-    ...mapActions(bookmarkStore, ['getBookmark']),
-    ...mapActions(cartStore, ['getCart'])
+    ...mapActions(BookmarkStore, ['getBookmark']),
+    ...mapActions(CartStore, ['getCart'])
   },
   watch: {
     $route () {

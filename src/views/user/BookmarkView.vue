@@ -29,7 +29,7 @@
             <h3 class="mb-3">收藏清單</h3>
             <i class="bi bi-box-seam h1 mb-3 d-block"></i>
             <p class="mb-3">目前收藏清單內無產品!</p>
-              <button type="button" class="btn" @click.prevent="this.$router.push('/products')">挑選產品</button>
+              <button type="button" class="btn" @click="$router.push('/products')">挑選產品</button>
           </div>
         </div>
       </div>
@@ -82,9 +82,9 @@
 </template>
 
 <script>
-import cartStore from '@/stores/cartStore'
+import CartStore from '@/stores/cartStore'
 import { mapActions, mapState } from 'pinia'
-import bookmarkStore from '@/stores/bookmarkStore'
+import BookmarkStore from '@/stores/bookmarkStore'
 import VueLoading from '@/components/VueLoading.vue'
 
 export default {
@@ -97,11 +97,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['addToCart']),
-    ...mapActions(bookmarkStore, ['getBookmark', 'delBookmark'])
+    ...mapActions(CartStore, ['addToCart']),
+    ...mapActions(BookmarkStore, ['getBookmark', 'delBookmark'])
   },
   computed: {
-    ...mapState(bookmarkStore, ['bookmark', 'bookmarkDate'])
+    ...mapState(BookmarkStore, ['bookmark', 'bookmarkDate'])
   },
   mounted () {
     this.getBookmark()

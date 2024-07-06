@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading" />
   <div>
     <div class="layoutBanner mb-md-5 mb-3">
       <div class="container">
@@ -9,7 +9,9 @@
             <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
               <ol class="breadcrumb d-flex justify-content-center">
                 <li class="breadcrumb-item">
-                  <a href="#" class="layout-banner-txt-Hover" @click.prevent>首頁</a>
+                  <a href="#" class="layout-banner-txt-Hover" @click.prevent
+                    >首頁</a
+                  >
                 </li>
                 <li class="breadcrumb-item text-light" aria-current="page">
                   產品列表
@@ -114,7 +116,8 @@
                 <a href="#" class="p-2 bookmark-icon" @click.prevent>
                   <i
                     class="bi bi-heart-fill"
-                    @click.prevent="addBookmark(product)"
+                    @click="addBookmark(product)"
+                    :class="{ 'bookmark-selected': isSelected(product.id) }"
                   ></i>
                 </a>
               </div>
@@ -124,14 +127,14 @@
       </div>
     </div>
   </div>
-  <Pagination :pages="pagination" @update-page="getProducts"/>
+  <Pagination :pages="pagination" @update-page="getProducts" />
 </template>
 
 <script>
 import Pagination from '@/components/PaginationComponent.vue'
-import cartStore from '@/stores/cartStore.js'
-import bookmarkStore from '@/stores/bookmarkStore.js'
-import { mapActions } from 'pinia'
+import CartStore from '@/stores/cartStore.js'
+import BookmarkStore from '@/stores/bookmarkStore.js'
+import { mapActions, mapState } from 'pinia'
 import VueLoading from '@/components/VueLoading.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -151,8 +154,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(bookmarkStore, ['addBookmark']),
-    ...mapActions(cartStore, ['addToCart']),
+    ...mapActions(BookmarkStore, ['getBookmark', 'addBookmark', 'isSelected']),
+    ...mapActions(CartStore, ['addToCart']),
     getProducts (page = 1) {
       this.isLoading = true
       const { category = '' } = this.$route.query
@@ -164,7 +167,6 @@ export default {
             this.searchKeyword = ''
             this.products = res.data.products
             this.pagination = res.data.pagination
-            console.log(this.products)
             setTimeout(() => {
               this.isLoading = false
             }, 800)
@@ -213,6 +215,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(BookmarkStore, ['bookmark', 'bookmarkDate']),
     sortPrice () {
       return this.sortedProducts()
     }
@@ -232,7 +235,7 @@ export default {
 </script>
 
 <style lang="scss" scope>
-  .productSelect {
+.productSelect {
   width: 25%;
 
   @media (max-width: 768px) {
@@ -250,11 +253,11 @@ export default {
 }
 
 .productLinkHover {
-  color: #54595F;
+  color: #54595f;
 }
 
 .productLinkHover:hover {
-  color: #CA0808;
+  color: #ca0808;
 }
 
 @media (max-width: 768px) {

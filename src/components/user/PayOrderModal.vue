@@ -24,7 +24,7 @@
         </div>
         <div class="modal-footer mx-auto">
           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" @click.prevent="toProducts">回賣場</button>
+          <button type="button" class="btn btn-primary" @click="toProducts">回賣場</button>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import modalMixins from '@/mixins/modalMixins'
+import ModalMixins from '@/mixins/modalMixins'
 
 export default {
   data () {
@@ -46,6 +46,6 @@ export default {
       this.hideModal()
     }
   },
-  mixins: [modalMixins]
+  mixins: [ModalMixins]
 }
 </script>

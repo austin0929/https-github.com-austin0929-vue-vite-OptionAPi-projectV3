@@ -24,7 +24,7 @@
         </div>
         <div class="modal-footer mx-auto">
           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" @click.prevent="delAllCart">確定</button>
+          <button type="button" class="btn btn-primary" @click="delAllCart">確定</button>
         </div>
       </div>
     </div>
@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import modalMixins from '@/mixins/modalMixins'
+import ModalMixins from '@/mixins/modalMixins'
 import { mapActions } from 'pinia'
-import cartStore from '@/stores/cartStore'
+import CartStore from '@/stores/cartStore'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -44,7 +44,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['getCart']),
+    ...mapActions(CartStore, ['getCart']),
     delAllCart () {
       const api = `${VITE_APP_URL}/api/${VITE_APP_PATH}/carts`
       this.$http
@@ -62,6 +62,6 @@ export default {
         })
     }
   },
-  mixins: [modalMixins]
+  mixins: [ModalMixins]
 }
 </script>

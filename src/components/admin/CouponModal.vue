@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import modalMixins from '@/mixins/modalMixins'
+import ModalMixins from '@/mixins/modalMixins'
 export default {
   props: ['coupon'],
   data () {
@@ -104,6 +104,6 @@ export default {
       this.tempCoupon.due_date = Math.floor(new Date(this.due_date) / 1000)
     }
   },
-  mixins: [modalMixins]
+  mixins: [ModalMixins]
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <VueLoading :active="isLoading"/>
+  <VueLoading :active="isLoading" />
   <div>
     <div class="layoutBanner mb-md-5 mb-3">
       <div class="container">
@@ -8,8 +8,14 @@
             <h2 class="fw-bold mb-3 text-light h1">購物車</h2>
             <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
               <ol class="breadcrumb d-flex justify-content-center">
-                <li class="breadcrumb-item"><a href="#" class="layout-banner-txt-Hover" @click.prevent>首頁</a></li>
-                <li class="breadcrumb-item text-light" aria-current="page">購物車</li>
+                <li class="breadcrumb-item">
+                  <a href="#" class="layout-banner-txt-Hover" @click.prevent
+                    >首頁</a
+                  >
+                </li>
+                <li class="breadcrumb-item text-light" aria-current="page">
+                  購物車
+                </li>
               </ol>
             </nav>
           </div>
@@ -24,12 +30,21 @@
         <div class="col-md-8">
           <div
             class="border text-center py-3 rounded custom-btn-primary"
-            style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)"
+            style="
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+            "
           >
             <h3 class="mb-3">購物車清單</h3>
             <i class="bi bi-box-seam h1 mb-3 d-block"></i>
             <p class="mb-3">目前購物車內無產品，請先選購!</p>
-              <button type="button" class="btn" @click.prevent="this.$router.push('/products')">開始購物</button>
+            <button
+              type="button"
+              class="btn"
+              @click.prevent="$router.push('/products')"
+            >
+              開始購物
+            </button>
           </div>
         </div>
       </div>
@@ -46,16 +61,16 @@
                 <tr>
                   <th></th>
                   <th>產品</th>
-                  <th>單價</th>
-                  <th class="table-qty-width">數量</th>
+                  <th class="table-price">單價</th>
+                  <th>數量</th>
                   <th class="text-end">總價</th>
                 </tr>
               </thead>
-              <tbody style="line-height: 38px">
+              <tbody>
                 <tr v-for="cart in carts" :key="cart.id">
                   <td class="text-center">
                     <a href="#" @click.prevent="delCartProduct(cart)"
-                      ><i class="bi bi-trash"></i
+                      ><i class="bi bi-trash del-icon"></i
                     ></a>
                   </td>
                   <td>
@@ -72,10 +87,16 @@
                       </h2>
                     </div>
                   </td>
-                  <td class="text-primary table-cart-font">$ {{ cart.product.origin_price }}</td>
+                  <td class="text-primary table-cart-font table-price">
+                    $ {{ cart.product.origin_price }}
+                  </td>
                   <td>
-                    <div class="bg-light d-flex">
-                      <button class="qtyButton" type="button" @click="updateQty(cart, false)">
+                    <div class="d-flex">
+                      <button
+                        class="qtyButton"
+                        type="button"
+                        @click="updateQty(cart, false)"
+                      >
                         <i class="bi bi-dash"></i>
                       </button>
                       <input
@@ -86,17 +107,28 @@
                         value="1"
                         readonly
                       />
-                      <button class="qtyButton" type="button" @click="updateQty(cart, true)">
+                      <button
+                        class="qtyButton"
+                        type="button"
+                        @click="updateQty(cart, true)"
+                      >
                         <i class="bi bi-plus"></i>
                       </button>
                     </div>
                   </td>
-                  <td class="text-primary text-end table-cart-font">$ {{ cart.product.price * cart.qty }}</td>
+                  <td class="text-primary text-end table-cart-font">
+                    $ {{ cart.product.price * cart.qty }}
+                  </td>
                 </tr>
               </tbody>
             </table>
             <div class="text-end custom-btn-primary">
-              <button class="btn" :disabled="carts.length === 0" type="button" @click="toCheckout">
+              <button
+                class="btn"
+                :disabled="carts.length === 0"
+                type="button"
+                @click="toCheckout"
+              >
                 結帳去
               </button>
             </div>
@@ -105,10 +137,16 @@
         <div class="col-md-4 mt-4 mt-md-0">
           <div class="d-flex justify-content-between custom-btn-dark">
             <h2 class="h4">購物車清單</h2>
-            <button class="btn" type="button" @click="delAllCart">清空購物車</button>
+            <button class="btn" type="button" @click="delAllCart">
+              清空購物車
+            </button>
           </div>
           <hr />
-          <div class="d-flex justify-content-between mb-1" v-for="cart in carts" :key="cart.name">
+          <div
+            class="d-flex justify-content-between mb-1"
+            v-for="cart in carts"
+            :key="cart.name"
+          >
             <span>{{ cart.product.title }}</span>
             <span>NT$ {{ cart.product.origin_price }}</span>
           </div>
@@ -119,7 +157,9 @@
           </div>
           <div class="d-flex justify-content-between mb-4">
             <span class="fw-bold h5">總計</span>
-            <span class="fw-bold h6 text-primary">NT$ {{ totalPrice.final_total }}</span>
+            <span class="fw-bold h6 text-primary"
+              >NT$ {{ totalPrice.final_total }}</span
+            >
           </div>
           <div class="input-group mb-3 custom-btn-primary">
             <input
@@ -144,11 +184,11 @@
       </div>
     </div>
   </template>
-  <DelAllCartModal ref="delAllCartModal"/>
+  <DelAllCartModal ref="delAllCartModal" />
 </template>
 
 <script>
-import cartStore from '@/stores/cartStore.js'
+import CartStore from '@/stores/cartStore.js'
 import { mapActions, mapState } from 'pinia'
 import DelAllCartModal from '@/components/user/DelAllCartModal.vue'
 import VueLoading from '@/components/VueLoading.vue'
@@ -168,10 +208,15 @@ export default {
     }
   },
   computed: {
-    ...mapState(cartStore, ['carts', 'totalPrice'])
+    ...mapState(CartStore, ['carts', 'totalPrice'])
   },
   methods: {
-    ...mapActions(cartStore, ['getCart', 'delCartProduct', 'delAllCart', 'updateQty']),
+    ...mapActions(CartStore, [
+      'getCart',
+      'delCartProduct',
+      'delAllCart',
+      'updateQty'
+    ]),
     addCoupon () {
       const api = `${VITE_APP_URL}/api/${VITE_APP_PATH}/coupon`
       const couponCode = {
@@ -214,14 +259,15 @@ export default {
 </script>
 
 <style lang="scss" scope>
-  .qtyButton {
+.qtyButton {
   width: 50px;
-  height: 100%;
+  height: 50px;
   border: 1px solid #d3d4d5;
   background-color: #f8f9fa;
 
   @media (max-width: 768px) {
-    width: 40px;
+    width: 27px;
+    height: 27px;
   }
 }
 
@@ -229,16 +275,8 @@ export default {
   font-size: 16px;
 
   @media (max-width: 768px) {
-    font-size: 11px;
-      padding-top: 5px;
-  }
-}
-
-.table-qty-width {
-  width: 140px;
-
-  @media (max-width: 768px) {
-    width: 70px;
+    font-size: 10px;
+    padding-top: 5px;
   }
 }
 
@@ -246,14 +284,39 @@ export default {
   background-color: #d3d4d5;
 }
 
+.del-icon{
+  font-size: 16px;
+    @media (max-width: 768px) {
+  font-size: 12px;
+
+  }
+}
+
 .qtyInput {
   width: 50px;
+  height: 50px;
   border: 1px solid #d3d4d5;
   background-color: #f8f9fa;
   outline: none;
 
   @media (max-width: 768px) {
-    width: 40px;
+    width: 27px;
+    height: 27px;
   }
+}
+ tbody td,
+tbody th {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table-price{
+   @media (max-width: 375px) {
+    display: none;
+  }
+}
+
+.table-qty-width {
+  width: 140px;
 }
 </style>

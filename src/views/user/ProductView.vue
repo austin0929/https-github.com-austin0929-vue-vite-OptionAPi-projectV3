@@ -45,7 +45,7 @@
                 class="img-fluid object-fit-cover imgSize col-3"
                 style="height: 80px; cursor: pointer"
                 :src="image"
-                @click.prevent="productImg = image"
+                @click="productImg = image"
                 alt="單一產品縮小圖"
               />
             </div>
@@ -194,12 +194,13 @@
                   </div>
                 </a>
                 <div>
-                  <a href="#" class="p-2 bookmark-icon" @click.prevent>
-                    <i
-                      class="bi bi-heart-fill"
-                      @click.prevent="addBookmark(product)"
-                    ></i>
-                  </a>
+                 <a href="#" class="p-2 bookmark-icon" @click.prevent>
+                  <i
+                    class="bi bi-heart-fill"
+                    @click="addBookmark(product)"
+                    :class="{ 'bookmark-selected': isSelected(product.id) }"
+                  ></i>
+                </a>
                 </div>
               </div>
             </div>
@@ -211,9 +212,9 @@
 </template>
 
 <script>
-import cartStore from '@/stores/cartStore.js'
+import CartStore from '@/stores/cartStore.js'
 import { mapActions, mapState } from 'pinia'
-import bookmarkStore from '@/stores/bookmarkStore'
+import BookmarkStore from '@/stores/bookmarkStore'
 import VueLoading from '@/components/VueLoading.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -234,8 +235,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['addToCart', 'updateQty']),
-    ...mapActions(bookmarkStore, ['getBookmark', 'addBookmark']),
+    ...mapActions(CartStore, ['addToCart', 'updateQty']),
+    ...mapActions(BookmarkStore, ['getBookmark', 'addBookmark', 'isSelected']),
     getNewProductId (id) {
       this.productId = id
       this.getProduct()
@@ -303,7 +304,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(cartStore, ['carts'])
+    ...mapState(CartStore, ['carts']),
+    ...mapState(BookmarkStore, ['bookmark', 'bookmarkDate'])
   },
   mounted () {
     this.productId = this.$route.params.id

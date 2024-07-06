@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import modalMixins from '@/mixins/modalMixins'
+import ModalMixins from '@/mixins/modalMixins'
 export default {
   props: ['order'],
   data () {
@@ -119,6 +119,6 @@ export default {
       this.tempOrder = this.order
     }
   },
-  mixins: [modalMixins]
+  mixins: [ModalMixins]
 }
 </script>

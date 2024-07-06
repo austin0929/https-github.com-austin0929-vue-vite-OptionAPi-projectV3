@@ -11,7 +11,11 @@
             </h2>
             <p class="mb-0 text-light">特級初榨橄欖油、大蒜、洋蔥、蘑菇、</p>
             <p class="text-light">綠橄欖、黑橄欖、新鮮番茄。</p>
-            <button type="button" class="btn rounded mt-3 btn-lg" @click.prevent="this.$router.push('/products')">
+            <button
+              type="button"
+              class="btn rounded mt-3 btn-lg"
+              @click.prevent="$router.push('/products')"
+            >
               立刻選購
             </button>
           </div>
@@ -185,10 +189,7 @@
         :key="product.id"
       >
         <div class="card border p-2 mb-4 position-relative">
-          <a
-            href="#"
-            @click.prevent="this.$router.push(`/product/${product.id}`)"
-          >
+          <a href="#" @click.prevent="$router.push(`/product/${product.id}`)">
             <img
               height="200"
               :src="product.imageUrl"
@@ -225,7 +226,8 @@
             <a href="#" class="p-2 bookmark-icon" @click.prevent>
               <i
                 class="bi bi-heart-fill"
-                @click.prevent="addBookmark(product)"
+                @click="addBookmark(product)"
+                 :class="{ 'bookmark-selected': isSelected(product.id) }"
               ></i>
             </a>
           </div>
@@ -236,9 +238,9 @@
 </template>
 
 <script>
-import cartStore from '@/stores/cartStore.js'
-import { mapActions } from 'pinia'
-import bookmarkStore from '@/stores/bookmarkStore'
+import CartStore from '@/stores/cartStore.js'
+import { mapActions, mapState } from 'pinia'
+import BookmarkStore from '@/stores/bookmarkStore'
 import { A11y, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
@@ -262,8 +264,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['addToCart']),
-    ...mapActions(bookmarkStore, ['getBookmark', 'addBookmark']),
+    ...mapActions(CartStore, ['addToCart']),
+    ...mapActions(BookmarkStore, ['getBookmark', 'addBookmark', 'delBookmark', 'isSelected']),
     getProducts () {
       this.isLoading = true
       const api = `${VITE_APP_URL}/api/${VITE_APP_PATH}/products`
@@ -303,6 +305,9 @@ export default {
       },
       deep: true
     }
+  },
+  computed: {
+    ...mapState(BookmarkStore, ['bookmark', 'bookmarkDate'])
   },
   mounted () {
     this.getProducts()
