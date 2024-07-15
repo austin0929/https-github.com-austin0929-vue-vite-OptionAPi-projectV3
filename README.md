@@ -1,10 +1,8 @@
-# CAT-PLANET - 貓咪樂活專賣店
+# FishDaddy - 魚老爹餐廳
 
 ## 專案說明
 
-以貓咪寵物用品為主題，結合玩具、美容、飲食、床窩用品的電商網站，滿足貓咪的一切需求。
-
-Demo Website：<https://ling-jun-hao.github.io/cat-planet/#/>
+以餐廳食物為主題，有各種美食可供訂購，滿足顧客需求。
 
 ## 設計理念
 
@@ -21,7 +19,7 @@ Demo Website：<https://ling-jun-hao.github.io/cat-planet/#/>
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
-* 使用 Vue 2 和 Vue Cli 架設開發。
+* 使用 Vue 3 和 Vue vite 架設開發。
 * 引入 Vue Router 與 Vue Axios 等套件。
 * 使用 Bootstrap 5 & SCSS 建構響應式版型。
 * 加入 ESLint standard 規範管理程式品質。
@@ -30,11 +28,10 @@ Demo Website：<https://ling-jun-hao.github.io/cat-planet/#/>
 ## 使用套件
 
 * Vue Router 管控路由。
-* Vue Axios 串接 37 支 API。
+* Vue Axios API。
 * Vee-Validate 表單驗證。
 * Vue-loading-overlay 動畫加載頁面。
 * swiper 輪播功能。
-* AOS 動畫效果。
 * Bootstrap Icons。
 
 ## 後端Swagger API文件
@@ -44,7 +41,7 @@ Demo Website：<https://ling-jun-hao.github.io/cat-planet/#/>
 ## 前台簡介
 
 * 首頁
-* 產品列表：產品分類、分頁功能
+* 產品列表：產品分類、分頁功能、收藏功能
 * 產品詳情
 * 購物車：新增、刪除、修改功能
 * 結帳：建立訂單
@@ -54,6 +51,7 @@ Demo Website：<https://ling-jun-hao.github.io/cat-planet/#/>
 * 產品管理：新增、修改、刪除、圖片上傳功能
 * 訂單管理：新增、修改、刪除功能
 * 優惠券管理：新增、修改、刪除功能
+* 部落格管理: 新增、修改、刪除功能
 
 ## 安裝方式
 
