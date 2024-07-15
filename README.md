@@ -1,80 +1,131 @@
-# FishDaddy - 魚老爹餐廳
+## 手作模型|實體課程
 
-## 專案說明
+提供模型設計稿讓學員體驗從 3D 列印一個原型，再上色的過程，不用會做設計稿也能實現自己做模型的樂趣，另外也有提供模型展覽活動資訊，有分需要報名或者可以免費入場的參展消息發佈，讓對模型有興趣的學員，不錯過參展機會。
 
-以餐廳食物為主題，有各種美食可供訂購，滿足顧客需求。
+## 功能
 
-## 設計理念
+前台
 
-* **名稱由來：** 喜歡貓咪的人都是一家人，同在一個星球上
-* **主要風格：** 咖啡色搭配灰色系
-* **色系搭配：** #6c5c53、#aaa、#6c5c53
+- 首頁製作流程、環境介紹、展覽資訊
+- 顯示課程列表
+- 顯示展覽資訊列表
+- 依照類別篩選課程
+- 查看課程簡介
+- 查看課程簡介，還可以查看同類型的課程
+- 同類別課程列表
+- 課程加入預約清單
+- 課程加入收藏清單與移除
+- 顯示收藏清單列表
+- 預約清單進行付款
+- 編輯預約課程人數、取消預約
+- 查詢己付款的訂單記錄
+- 填寫預約課程資訊、表單驗證、送出預訂
 
-## 使用技術
 
-![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
-![Bootstrap.js](https://img.shields.io/badge/-Bootstrap-563D7C?style=for-the-badge&logo=bootstrap)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
+後台(管理者)
 
-* 使用 Vue 3 和 Vue vite 架設開發。
-* 引入 Vue Router 與 Vue Axios 等套件。
-* 使用 Bootstrap 5 & SCSS 建構響應式版型。
-* 加入 ESLint standard 規範管理程式品質。
-* 透過 Pinia 進行狀態管理，負責跨元件參數操作。
+- 檢視預約課程列表
+- 管理新增預約課程品項
+- 管理刪除預約課程品項
+- 管理編輯預約課程品項
+- 檢視預約課程訂單列表
+- 檢視課程訂單
+- 刪除未付款的課程訂單
 
-## 使用套件
 
-* Vue Router 管控路由。
-* Vue Axios API。
-* Vee-Validate 表單驗證。
-* Vue-loading-overlay 動畫加載頁面。
-* swiper 輪播功能。
-* Bootstrap Icons。
+## 專案技術
+Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API / Pinia
 
-## 後端Swagger API文件
 
-* <https://hexschool.github.io/vue3-courses-swaggerDoc/>
+## 專案管理
+Notion / whimsical / Git / GitHub / 
 
-## 前台簡介
 
-* 首頁
-* 產品列表：產品分類、分頁功能、收藏功能
-* 產品詳情
-* 購物車：新增、刪除、修改功能
-* 結帳：建立訂單
+## 環境變數
 
-## 後台簡介
+請將 `.env.example` 複製一份並命名為 `.env`，並將裡面的環境變數設定為你的值。
 
-* 產品管理：新增、修改、刪除、圖片上傳功能
-* 訂單管理：新增、修改、刪除功能
-* 優惠券管理：新增、修改、刪除功能
-* 部落格管理: 新增、修改、刪除功能
+```bash
+cp .env.example .env
+```
 
-## 安裝方式
+### 安裝套件
 
-```bash=
+```bash
 npm install
 ```
 
-## 啟動方式
+### 啟動開發環境
 
-啟動伺服器預設使用：<http://localhost:3000>
-
-```bash=
+```bash
 npm run dev
 ```
 
-## 打包方式
+### 打包專案
 
-```bash=
+```bash
 npm run build
 ```
 
-## 使用版本
+### 部署專案
 
-* nodejs - v18.19.1
-* npm - 10.2.4
+```bash
+npm run deploy
+```
 
+## 套件
+
+- axios (^1.6.7)
+- bootstrap (^5.3.2)
+- bootstrap-icons (^1.11.3)
+- dotenv (^16.3.1)
+- pinia (^2.1.7)
+- vue (^3.3.11)
+- vue-router (^4.2.5)
+- sweetalert2 (^11.10.5)
+- @popperjs/core (^2.11.8)
+- vee-validate/i18n (^4.12.5)
+- vee-validate/rules (^4.12.5)
+- aos (^2.3.4)
+- eslint (^8.49.0)
+- eslint-config-airbnb-base (^15.0.0)
+- eslint-import-resolver-alias (^1.1.2)
+- eslint-plugin-import (^2.29.1)
+- eslint-plugin-n (^16.6.2)
+- eslint-plugin-promise (^6.1.1)
+- eslint-plugin-vue (^9.20.1)
+- gh-pages (^6.1.1)
+- sass (^1.69.7)
+- vite (^5.0.10)
+- vite-plugin-eslint (^1.8.1)
+
+## 資料夾結構
+
+- `.vscode`：Visual Studio Code 的設定檔
+- `dist`：打包後的檔案
+- `public`：公開的靜態檔案
+- `src`：專案的程式碼
+  - `assets`：靜態檔案
+  - `components`：元件
+  - `router`：路由
+  - `store`：狀態管理
+  - `views`：頁面
+  - `App.vue`：根元件
+  - `main.js`：進入點
+- `.env.example`：環境變數範本
+- `.eslintrc.js`：ESLint 設定檔
+- `.gitignore`：Git 忽略檔案
+- `.nvmrc`：Node.js 版本
+- `index.html`：進入點 HTML
+- `package-lock.json`：套件版本鎖定
+- `package.json`：專案資訊
+- `README.md`：專案說明
+- `vite.config.js`：Vite 設定檔
+
+## gh-pages 部署說明
+
+內建預設是使用 gh-pages 進行部署，因此只需要在專案根目錄下執行以下指令即可。
+
+```bash
+npm run deploy
+```
