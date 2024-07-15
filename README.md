@@ -1,44 +1,32 @@
-## 手作模型|實體課程
+## FishDaddy|魚老爹餐廳
 
-提供模型設計稿讓學員體驗從 3D 列印一個原型，再上色的過程，不用會做設計稿也能實現自己做模型的樂趣，另外也有提供模型展覽活動資訊，有分需要報名或者可以免費入場的參展消息發佈，讓對模型有興趣的學員，不錯過參展機會。
+魚老爹餐廳電商致力於將新鮮食物送到顧客的餐桌。我們以美國風情為靈感，結合現代設計，打造便捷、安全的購物平台，讓顧客輕鬆享受美味食物和貼心服務。
 
 ## 功能
 
 前台
 
-- 首頁製作流程、環境介紹、展覽資訊
-- 顯示課程列表
-- 顯示展覽資訊列表
-- 依照類別篩選課程
-- 查看課程簡介
-- 查看課程簡介，還可以查看同類型的課程
-- 同類別課程列表
-- 課程加入預約清單
-- 課程加入收藏清單與移除
-- 顯示收藏清單列表
-- 預約清單進行付款
-- 編輯預約課程人數、取消預約
-- 查詢己付款的訂單記錄
-- 填寫預約課程資訊、表單驗證、送出預訂
-
+- 產品列表、產品細節、產品名稱篩選、產品價格篩選
+- 關於我們
+- 購物車列表、產品新增、產品刪除、產品修改數量
+- 收藏列表、加入收藏、取消收藏
+- 部落格列表、部落格文章
+- 訂單列表、檢視訂單、建立訂單、訂單使用者驗證、訂單付款
 
 後台(管理者)
 
-- 檢視預約課程列表
-- 管理新增預約課程品項
-- 管理刪除預約課程品項
-- 管理編輯預約課程品項
-- 檢視預約課程訂單列表
-- 檢視課程訂單
-- 刪除未付款的課程訂單
+- 產品列表、新增產品、刪除產品、修改產品
+- 優惠券列表、新增優惠券、刪除優惠券、修改優惠券
+- 部落格列表、新增文章、刪除文章、修改文章
+- 管理者登入、管理者登出
 
 
 ## 專案技術
-Vue3 / Vite / Composition API / Vue Router / Bootstrap5 / Sass / RESTful API / Pinia
+Vue3 / Vite / Options API  / Vue Router / Bootstrap5 / Sass / RESTful API / Pinia 
 
 
 ## 專案管理
-Notion / whimsical / Git / GitHub / 
+Git / GitHub / 
 
 
 ## 環境變數
@@ -75,29 +63,26 @@ npm run deploy
 
 ## 套件
 
-- axios (^1.6.7)
-- bootstrap (^5.3.2)
-- bootstrap-icons (^1.11.3)
-- dotenv (^16.3.1)
-- pinia (^2.1.7)
-- vue (^3.3.11)
-- vue-router (^4.2.5)
-- sweetalert2 (^11.10.5)
-- @popperjs/core (^2.11.8)
 - vee-validate/i18n (^4.12.5)
 - vee-validate/rules (^4.12.5)
-- aos (^2.3.4)
-- eslint (^8.49.0)
-- eslint-config-airbnb-base (^15.0.0)
-- eslint-import-resolver-alias (^1.1.2)
-- eslint-plugin-import (^2.29.1)
-- eslint-plugin-n (^16.6.2)
-- eslint-plugin-promise (^6.1.1)
-- eslint-plugin-vue (^9.20.1)
-- gh-pages (^6.1.1)
-- sass (^1.69.7)
-- vite (^5.0.10)
+- vee-validate (^4.12.5)
+- axios (^1.6.8)
+- bootstrap (^5.3.3)
+- bootstrap-icons (^1.11.3)
+- eslint (^8.57.1)
+- eslint-config-standard (^17.1.0)
+- eslint-plugin-vue (^9.23.0)
+- pinia (^2.1.7)
+- swiper (^11.1.1)
 - vite-plugin-eslint (^1.8.1)
+- vue (^3.4.1)
+- vue-loading-overlay (6.0)
+- vue-router (^4.3.0)
+- vue-sweetalert2 (^5.0.5)
+- vue3-toastify (^0.2.1)
+- vitejs/plugin-vue (^5.0.4)
+- sass (^1.72.0)
+- vite (^5.1.6)
 
 ## 資料夾結構
 
